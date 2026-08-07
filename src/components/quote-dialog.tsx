@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { BubbleField, OrchidMark } from "@/components/brand";
 import { QUOTE_SERVICE_OPTIONS, SERVED_POSTCODES } from "@/lib/orchids";
 import { openWhatsApp, quoteMessage, type QuoteDraft } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
@@ -125,12 +124,7 @@ export function QuoteDialog({
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-h-[min(92dvh,100%)] w-[calc(100%-1.25rem)] gap-0 overflow-y-auto rounded-2xl border-border bg-card p-0 sm:max-w-lg sm:rounded-3xl">
-        <div className="surface-navy relative isolate overflow-hidden px-4 pt-5 pb-4 sm:px-6 sm:pt-6 sm:pb-5">
-          <BubbleField className="text-primary-foreground" />
-          <OrchidMark
-            spin
-            className="pointer-events-none absolute -top-6 -right-6 h-28 w-28 text-primary-foreground/10"
-          />
+        <div className="surface-navy relative isolate overflow-hidden px-4 pt-5 pb-4 pr-14 sm:px-6 sm:pt-6 sm:pb-5 sm:pr-16">
           <DialogHeader className="relative space-y-1 text-left">
             <DialogTitle className="font-display text-xl text-primary-foreground">
               {step === 3 ? "Here's your quote request" : "Get an instant WhatsApp quote"}

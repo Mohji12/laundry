@@ -70,16 +70,6 @@ export function Hero() {
               <span className="tnum text-xs text-primary-foreground/80 sm:text-sm">
                 500+ happy locals in W10 &amp; W11
               </span>
-              <span className="flex -space-x-2">
-                {["AR", "DO", "PS", "CB"].map((initials) => (
-                  <span
-                    key={initials}
-                    className="grid h-8 w-8 place-items-center rounded-full border border-primary-foreground/40 bg-primary text-[0.6rem] font-semibold text-primary-foreground"
-                  >
-                    {initials}
-                  </span>
-                ))}
-              </span>
             </div>
           </div>
 

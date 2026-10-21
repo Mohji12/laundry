@@ -46,22 +46,36 @@ export function OrchidMark({
 export function OrchidLogo({
   className,
   compact = false,
+  fit,
 }: {
   className?: string;
   /** Kept for call-site compatibility; logo artwork is fixed. */
   tone?: "navy" | "light";
   compact?: boolean;
+  /** Fill a fixed-height bar; scale the padded artwork without growing the bar. */
+  fit?: "navbar";
 }) {
   return (
-    <span className={cn("inline-flex max-w-full min-w-0 items-center", className)}>
+    <span
+      className={cn(
+        "inline-flex max-w-full min-w-0 items-center",
+        fit === "navbar" && "h-full",
+        className,
+      )}
+    >
       <img
         src={logoSrc}
         alt="Orchid Dry Cleaners & Launderette"
         className={cn(
-          "h-auto w-auto max-w-full object-contain object-left transition-all duration-200",
-          compact
-            ? "max-h-12 max-w-[9.5rem] sm:max-h-14 sm:max-w-[12rem] md:max-h-16 md:max-w-[15rem]"
-            : "max-h-14 max-w-[11rem] sm:max-h-16 sm:max-w-[14rem] md:max-h-20 md:max-w-[18rem] lg:max-h-24 lg:max-w-[22rem]",
+          "w-auto max-w-full object-contain object-left transition-all duration-200",
+          fit === "navbar"
+            ? "h-[400%] max-h-none w-auto max-w-none"
+            : cn(
+                "h-auto",
+                compact
+                  ? "max-h-12 max-w-[9.5rem] sm:max-h-14 sm:max-w-[12rem] md:max-h-16 md:max-w-[15rem]"
+                  : "max-h-14 max-w-[11rem] sm:max-h-16 sm:max-w-[14rem] md:max-h-20 md:max-w-[18rem] lg:max-h-24 lg:max-w-[22rem]",
+              ),
         )}
       />
     </span>
